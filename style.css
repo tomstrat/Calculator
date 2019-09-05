@@ -1,0 +1,69 @@
+#calcContainer{
+  border: 1px solid black;
+  width: 400px;
+  height: 500px;
+  margin: 30px auto;
+  padding: 20px;
+}
+#topBar{
+  border: 1px solid red;
+  width: 100%;
+  height: 60px;
+  margin: 0px auto;
+  position:relative;
+}
+#error{
+  border: 1px solid blue;
+  display: inline-block;
+  font-size: 30px;
+  font-family: helvetica;
+  position:absolute;
+  bottom:0;
+}
+#display{
+  border: 1px solid blue;
+  display: inline-block;
+  font-size: 50px;
+  font-family: helvetica;
+  position:absolute;
+  bottom:0;
+  right: 0;
+}
+#mainBar{
+  border: 1px solid red;
+  width: 100%;
+  height: 300px;
+  margin: 20px auto;
+  position:relative;
+}
+#equals{
+  border: 1px solid red;
+  width: 100%;
+  height: 100px;
+  margin: 0px auto;
+  position:relative;
+}
+#numbers{
+  height: 100%;
+  border: 1px solid green;
+  width:70%;
+  float: left;
+}
+#operators{
+  height: 100%;
+  width:25%;
+  float: right;
+  display: flex;
+  flex-direction:column;
+}
+#operators div{ 
+  width:100%;
+  flex-grow: 1;
+}
+#operators div button{
+  width: 100%;
+  height: 100%;
+  background-color:#028FDF;
+  color: white;
+  font-size: 40px;
+}
