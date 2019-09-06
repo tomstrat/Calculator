@@ -64,8 +64,8 @@ button:focus {
   background:radial-gradient(60% 60%, #20247a, #42918d);
 }
 #operators div button:active{
-  background:radial-gradient( 60% 60%, #2a59cc, #45aaa4);
-  color:#54a5fd;
+  background:radial-gradient( 60% 60%, #4992ff, #45aaa4);
+  color:#6dd9ff;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
@@ -93,7 +93,7 @@ button:focus {
 }
 #equals button:active{
   background:radial-gradient( 60% 60%, #e80e11, #bb333b);
-  color:#ff5b52;
+  color:#ffb0aa;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
