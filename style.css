@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'opticalculatorregular';
+    src: url('./resources/opticalculator-webfont.woff2') format('woff2'),
+         url('./resources/opticalculator-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #calcContainer{
   border: 1px solid black;
   width: 350px;
@@ -11,18 +19,19 @@
   height: 60px;
   margin: 0px auto;
   position:relative;
+  background-color: #032f00;
+  color:#78fd54;
+  font-family: 'opticalculatorregular';
 }
 #error{
   display: inline-block;
   font-size: 30px;
-  font-family: helvetica;
   position:absolute;
   bottom:0;
 }
 #display{
   display: inline-block;
   font-size: 50px;
-  font-family: helvetica;
   position:absolute;
   bottom:0;
   right: 0;
@@ -116,7 +125,7 @@ button:focus {
   height: 100%;
   border-radius: 10px;
   border: 1px solid rgb(0,0,0,0.2);
-  font-family: helvetica;
+  font-family: 'opticalculatorregular';
   font-size: 40px;
   color: rgb(0,0,0,0.2);
   background:radial-gradient(60% 60%, #207a34, #5a842e);
