@@ -33,12 +33,11 @@
   margin: 20px auto;
   position:relative;
 }
-#equals{
-  width: 100%;
-  height: 70px;
-  margin: 0px auto;
-  position:relative;
+button:focus {
+  outline:0;
 }
+
+/*OPERATORS*/
 #operators{
   height: 100%;
   width:25%;
@@ -46,27 +45,62 @@
   display: flex;
   flex-direction:column;
 }
-#operators div{ 
+#operators div{
   width:100%;
   flex-grow: 1;
 }
 #operators div button{
   width: 100%;
   height: 100%;
-  background-color:#028FDF;
-  color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0,0.2);
+  font-family: helvetica;
   font-size: 40px;
+  color: rgb(0,0,0,0.2);
+  background:radial-gradient(60% 60%, #20247a, #2e7184);
+  box-shadow: 0 5px #20247a;
+}
+#operators div button:hover{
+  background:radial-gradient(60% 60%, #20247a, #42918d);
+}
+#operators div button:active{
+  background:radial-gradient( 60% 60%, #2a59cc, #45aaa4);
+  color:#54a5fd;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+/*EQUALS*/
+#equals{
+  width: 100%;
+  height: 70px;
+  margin: 0px auto;
+  position:relative;
 }
 #equals button{
   width: 100%;
   height: 100%;
-  background-color:rgb(86, 226, 105);
-  color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0,0.2);
+  font-family: helvetica;
   font-size: 40px;
+  color: rgb(0,0,0,0.2);
+  background:radial-gradient(60% 60%, #920606, #93381f);
+  box-shadow: 0 5px #920606;
 }
+#equals button:hover{
+  background:radial-gradient(60% 60%, #920606, #af3d34);
+}
+#equals button:active{
+  background:radial-gradient( 60% 60%, #e80e11, #bb333b);
+  color:#ff5b52;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+/*NUMBERS*/
 #numbers{
   height: 100%;
-  border: 1px solid green;
   width:70%;
   float: left;
   display: flex;
@@ -80,7 +114,20 @@
 #numbers div button{
   width: 100%;
   height: 100%;
-  background-color:rgb(238, 75, 83);
-  color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0,0.2);
+  font-family: helvetica;
   font-size: 40px;
+  color: rgb(0,0,0,0.2);
+  background:radial-gradient(60% 60%, #207a34, #5a842e);
+  box-shadow: 0 5px #207a34;
+}
+#numbers div button:hover{
+  background:radial-gradient(60% 60%, #207a34, #809142);
+}
+#numbers div button:active{
+  background:radial-gradient( 60% 60%, #2ecc2a, #95aa45);
+  color:#78fd54;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
