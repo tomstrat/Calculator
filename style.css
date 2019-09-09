@@ -82,6 +82,14 @@ button::-moz-focus-inner {
   transform: translateY(4px);
 }
 
+.operatorsDown{
+  background:radial-gradient( 60% 60%, #666668, #4c4c4d);
+  color:#1229f8 !important;
+  box-shadow: 0 2px #666;
+  transition: transform 50ms;
+  transform: translateY(4px);
+}
+
 /*EQUALS*/
 #equals{
   width: 100%;
@@ -105,6 +113,14 @@ button::-moz-focus-inner {
   background:radial-gradient( 60% 60%, #666668, #4c4c4d);
   color:#f12819;
   box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.equalsDown{
+  background:radial-gradient( 60% 60%, #666668, #4c4c4d);
+  color:#f12819 !important;
+  box-shadow: 0 2px #666;
+  transition: transform 50ms;
   transform: translateY(4px);
 }
 
