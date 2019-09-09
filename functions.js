@@ -9,6 +9,7 @@ let operator = "";
 let numbers = document.querySelectorAll(".number")
 let operators = document.querySelectorAll(".operator");
 let equals = document.querySelector(".equals");
+let cancel = document.querySelector(".cancel");
 
 numbers.forEach(function(number){
     number.addEventListener("click", function(e){
@@ -31,19 +32,32 @@ document.addEventListener("keydown", function(e){
         switch(operator){
             case "+":
                 display.innerHTML = add(firstNumber, secondNumber);
+                break;
             case "-":
                 display.innerHTML = subtract(firstNumber, secondNumber);
+                break;
             case "x":
                 display.innerHTML = multiply(firstNumber, secondNumber);
+                break;
             case "/":
                 display.innerHTML = divide(firstNumber, secondNumber);
+                break;
         }
+    } else if (e.key == "c"){
+        cancel.classList += " equalsDown";
+        error.innerHTML = "";
+        firstNumber = 0;
+        secondNumber = 0
+        operator = "";
+        display.innerHTML = "";
+        return;
     }
+
     for(i=0;i<operators.length;i++){
         if(e.key == operators[i].innerHTML){
             operators[i].classList += " operatorsDown";
             firstNumber = parseInt(display.innerHTML);
-            operator = e.target.innerHTML;
+            operator = e.key;
             display.innerHTML = "";
             return;
         }
@@ -77,15 +91,33 @@ equals.addEventListener("click", function (e){
     switch(operator){
         case "+":
             display.innerHTML = add(firstNumber, secondNumber);
+            break;
         case "-":
             display.innerHTML = subtract(firstNumber, secondNumber);
+            break;
         case "x":
             display.innerHTML = multiply(firstNumber, secondNumber);
+            break;
         case "/":
             display.innerHTML = divide(firstNumber, secondNumber);
+            break;
     }
 });
+
 equals.addEventListener("transitionend", function(e){
+    e.target.classList.remove("equalsDown");
+});
+
+cancel.addEventListener("click", function(e){
+    error.innerHTML = "";
+    firstNumber = 0;
+    secondNumber = 0
+    operator = "";
+    display.innerHTML = "";
+    return;
+});
+
+cancel.addEventListener("transitionend", function(e){
     e.target.classList.remove("equalsDown");
 });
 
