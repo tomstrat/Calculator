@@ -137,5 +137,14 @@ button::-moz-focus-inner {
   background:radial-gradient( 60% 60%, #666668, #4c4c4d);
   color:#78fd54;
   box-shadow: 0 2px #666;
+  transition: transform 50ms;
+  transform: translateY(4px);
+}
+
+.numbersDown{
+  background:radial-gradient( 60% 60%, #666668, #4c4c4d);
+  color:#78fd54 !important;
+  box-shadow: 0 2px #666;
+  transition: transform 50ms;
   transform: translateY(4px);
 }
