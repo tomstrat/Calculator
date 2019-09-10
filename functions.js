@@ -18,21 +18,13 @@ document.addEventListener("keydown", function(e){
         operate(e);
     } else if (e.key == "c"){
         cancel.classList += " equalsDown";
-        error.innerHTML = "";
-        firstNumber = 0;
-        secondNumber = 0
-        operator = "";
-        display.innerHTML = "";
-        return;
+        cancelScreen(e);
     }
 
     for(i=0;i<operators.length;i++){
         if(e.key == operators[i].innerHTML){
             operators[i].classList += " operatorsDown";
-            firstNumber = parseInt(display.innerHTML);
-            operator = e.key;
-            display.innerHTML = "";
-            return;
+            firstOperation(e);
         }
     }
     for(i=0;i<numbers.length;i++){
@@ -63,24 +55,18 @@ numbers.forEach(function(number){
 });
 
 operators.forEach(function(operator){
-    operator.addEventListener("click", function (e){
-        firstNumber = parseInt(display.innerHTML);
-        operator = e.target.innerHTML;
-        display.innerHTML = "";
-    });
+    operator.addEventListener("click", firstOperation);
     operator.addEventListener("transitionend", function(e){
         e.target.classList.remove("operatorsDown");
     });
 });
 
 equals.addEventListener("click", operate);
+cancel.addEventListener("click", cancelScreen);
 
 equals.addEventListener("transitionend", function(e){
     e.target.classList.remove("equalsDown");
 });
-
-cancel.addEventListener("click", cancelScreen);
-
 cancel.addEventListener("transitionend", function(e){
     e.target.classList.remove("equalsDown");
 });
@@ -138,5 +124,11 @@ function cancelScreen(e){
     firstNumber = 0;
     secondNumber = 0
     operator = "";
+    display.innerHTML = "0";
+}
+
+function firstOperation(e){
+    firstNumber = parseInt(display.innerHTML);
+    operator = e.key != undefined ? e.key: e.target.innerHTML;
     display.innerHTML = "";
 }
