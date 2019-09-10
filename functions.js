@@ -6,25 +6,29 @@ let secondNumber = 0;
 let operator = "";
 
 //Run this on startup
-//Event Listeners
+//Buttons for Events
 let numbers = document.querySelectorAll(".number")
 let operators = document.querySelectorAll(".operator");
 let equals = document.querySelector(".equals");
 let cancel = document.querySelector(".cancel");
 
+//Event Listeners
 document.addEventListener("keydown", function(e){
     if(e.key == "="){
         equals.classList += " equalsDown";
         operate(e);
+        return;
     } else if (e.key == "c"){
         cancel.classList += " equalsDown";
         cancelScreen(e);
+        return;
     }
 
     for(i=0;i<operators.length;i++){
         if(e.key == operators[i].innerHTML){
             operators[i].classList += " operatorsDown";
             firstOperation(e);
+            return;
         }
     }
     for(i=0;i<numbers.length;i++){
@@ -33,8 +37,7 @@ document.addEventListener("keydown", function(e){
             if(screenFull()){
                 displayError();
             } else {
-                display.innerHTML += numbers[i].innerHTML;
-                return;
+                pushNumber(numbers[i]);
             }
         } 
     }
@@ -45,8 +48,7 @@ numbers.forEach(function(number){
         if(screenFull()){
             displayError();
         } else {
-            display.innerHTML += e.target.innerHTML;
-            return;
+            pushNumber(e);
         }
     });
     number.addEventListener("transitionend", function(e){
@@ -89,16 +91,10 @@ function divide(a, b){
     return a / b;
 }
 
-function screenFull(){
-    return display.innerHTML.length > 9 ? true : false;
-}
-
-function displayError(){
-    if(error.innerHTML.length > 0){
-        return;
-    } else {
-        error.innerHTML = "E"
-    }
+function firstOperation(e){
+    firstNumber = parseInt(display.innerHTML);
+    operator = e.key != undefined ? e.key: e.target.innerHTML;
+    display.innerHTML = "";
 }
 
 function operate (e){
@@ -119,6 +115,19 @@ function operate (e){
     }
 }
 
+//Misc Functions including screen manipulation
+function screenFull(){
+    return display.innerHTML.length > 9 ? true : false;
+}
+
+function displayError(){
+    if(error.innerHTML.length > 0){
+        return;
+    } else {
+        error.innerHTML = "E"
+    }
+}
+
 function cancelScreen(e){
     error.innerHTML = "";
     firstNumber = 0;
@@ -127,8 +136,12 @@ function cancelScreen(e){
     display.innerHTML = "0";
 }
 
-function firstOperation(e){
-    firstNumber = parseInt(display.innerHTML);
-    operator = e.key != undefined ? e.key: e.target.innerHTML;
-    display.innerHTML = "";
+function pushNumber(number){
+
+    if(display.innerHTML == "0"){
+        display.innerHTML = number.innerHTML;
+    } else {
+        display.innerHTML += number.innerHTML;
+    }
+        
 }
