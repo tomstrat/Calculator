@@ -139,9 +139,11 @@ function cancelScreen(e){
 function pushNumber(number){
 
     if(display.innerHTML == "0"){
-        display.innerHTML = number.innerHTML;
+        display.innerHTML = number.innerHTML != undefined ? 
+            number.innerHTML : number.target.innerHTML;
     } else {
-        display.innerHTML += number.innerHTML;
+        display.innerHTML += number.innerHTML != undefined ? 
+            number.innerHTML : number.target.innerHTML;
     }
         
 }
