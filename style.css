@@ -7,10 +7,9 @@
 }
 
 #calcContainer{
-  border: 1px solid black;
   width: 350px;
   height: 470;
-  margin: 30px auto;
+  margin: auto auto;
   padding: 20px;
 }
 #topBar{
@@ -163,4 +162,22 @@ button::-moz-focus-inner {
   box-shadow: 0 2px #666;
   transition: transform 50ms;
   transform: translateY(4px);
+}
+
+#bgContainer{
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  width: 485px;
+  height: 581px;
+  background-image: url("resources/images/Back_Full.png");
+  background-repeat: no-repeat;
+  background-position: 15px 0px;
+}
+
+img{
+  position:absolute;
+  z-index: 10;
+  padding-left: 15px;
+  pointer-events: none;
 }

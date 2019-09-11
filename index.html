@@ -1,58 +1,61 @@
 <!DOCTYPE html>
-<hmtl>
+<html>
 
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-    <div id="calcContainer">
-      <div id="topBar">
-        <div id="error"></div>
-        <div id="display">0</div>
-      </div>
-      <div id="mainBar">
-        <div id="numbers">
-          <div class="row">
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
+    <div id="bgContainer">
+      <div id="calcContainer">
+        <div id="topBar">
+          <div id="error"></div>
+          <div id="display">0</div>
+        </div>
+        <div id="mainBar">
+          <div id="numbers">
+            <div class="row">
+              <button class="number">7</button>
+              <button class="number">8</button>
+              <button class="number">9</button>
+            </div>
+            <div class="row">
+              <button class="number">4</button>
+              <button class="number">5</button>
+              <button class="number">6</button>
+            </div>
+            <div class="row">
+              <button class="number">1</button>
+              <button class="number">2</button>
+              <button class="number">3</button>
+            </div>
+            <div class="row">
+              <button>-+</button>
+              <button class="number">0</button>
+              <button class="cancel">c</button>
+            </div>
           </div>
-          <div class="row">
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-          </div>
-          <div class="row">
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-          </div>
-          <div class="row">
-            <button>-+</button>
-            <button class="number">0</button>
-            <button class="cancel">c</button>
+          <div id="operators">
+            <div id="add">
+              <button class="operator">+</button>
+            </div>
+            <div id="subtract">
+              <button class="operator">-</button>
+            </div>
+            <div id="multiply">
+              <button class="operator">x</button>
+            </div>
+            <div id="divide">
+              <button class="operator">/</button>
+            </div>
           </div>
         </div>
-        <div id="operators">
-          <div id="add">
-            <button class="operator">+</button>
-          </div>
-          <div id="subtract">
-            <button class="operator">-</button>
-          </div>
-          <div id="multiply">
-            <button class="operator">x</button>
-          </div>
-          <div id="divide">
-            <button class="operator">/</button>
-          </div>
+        <div id="equals">
+          <button class="equals">=</button>
         </div>
       </div>
-      <div id="equals">
-        <button class="equals">=</button>
-      </div>
+      <img src="resources/images/Front.png">
     </div>
     <script src="functions.js"></script>
   </body>
-</hmtl>
+</html>
