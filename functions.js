@@ -3,7 +3,12 @@ let display = document.getElementById("display");
 let error = document.getElementById("error");
 let firstNumber = 0;
 let secondNumber = 0;
+let totalCount = 0;
 let operator = "";
+// This will determine overwriting the display or not
+let displaySwitch = true;
+// This is just for first operation to display no equasion
+let operationSwitch = true;
 
 //Run this on startup
 //Buttons for Events
@@ -22,6 +27,12 @@ document.addEventListener("keydown", function(e){
         cancel.classList += " equalsDown";
         cancelScreen(e);
         return;
+    } else if (e.key == "."){
+        displaySwitch = false;
+        let decimal = /\./;
+        if(decimal.test(display.innerHTML)){
+            return;
+        } 
     }
 
     for(i=0;i<operators.length;i++){
@@ -48,6 +59,14 @@ numbers.forEach(function(number){
         if(screenFull()){
             displayError();
         } else {
+
+            if (number.innerHTML == "."){
+                displaySwitch = false;
+                let decimal = /\./;
+                if(decimal.test(display.innerHTML)){
+                    return;
+                }
+            }
             pushNumber(e);
         }
     });
@@ -88,29 +107,36 @@ function multiply(a, b){
 }
 
 function divide(a, b){
-    return a / b;
+    return a == 0 || b == 0 ? displayError(): b / a;
 }
 
 function firstOperation(e){
-    firstNumber = parseInt(display.innerHTML);
+    firstNumber = +display.innerHTML;
     operator = e.key != undefined ? e.key: e.target.innerHTML;
-    display.innerHTML = "";
+    operationSwitch ? null : operate(e);
+    secondNumber = display.innerHTML;
+    totalCount = +display.innerHTML;
+    displaySwitch = true;
+    operationSwitch = false;
 }
 
 function operate (e){
-    secondNumber = parseInt(display.innerHTML)
+    if(e.key == "=" || e.target.innerHTML == "="){
+        operationSwitch = true;
+        secondNumber = display.innerHTML;
+    }
     switch(operator){
         case "+":
-            display.innerHTML = add(firstNumber, secondNumber);
+            displayToScreen(add(+firstNumber, +secondNumber));
             break;
         case "-":
-            display.innerHTML = subtract(firstNumber, secondNumber);
+            displayToScreen(subtract(+firstNumber, +secondNumber).toFixed(2));
             break;
         case "x":
-            display.innerHTML = multiply(firstNumber, secondNumber);
+            displayToScreen(multiply(+firstNumber, +secondNumber));
             break;
         case "/":
-            display.innerHTML = divide(firstNumber, secondNumber);
+            displayToScreen(divide(+firstNumber, +secondNumber));
             break;
     }
 }
@@ -125,6 +151,19 @@ function displayError(){
         return;
     } else {
         error.innerHTML = "E"
+        return "";
+    }
+}
+
+function displayToScreen(number){
+    error.innerHTML == "E" ? number = display.innerHTML : null;
+    number = number.toString();
+    if(number.length > 9){
+        number = number.substring(0, 10);
+        display.innerHTML = (number);
+        displayError();
+    } else {
+        display.innerHTML = (number);
     }
 }
 
@@ -134,11 +173,14 @@ function cancelScreen(e){
     secondNumber = 0
     operator = "";
     display.innerHTML = "0";
+    displaySwitch = true;
+    operationSwitch = true;
 }
 
 function pushNumber(number){
 
-    if(display.innerHTML == "0"){
+    if(displaySwitch){
+        displaySwitch = false;
         display.innerHTML = number.innerHTML != undefined ? 
             number.innerHTML : number.target.innerHTML;
     } else {
